@@ -22,6 +22,7 @@ import com.example.happybirthday.ui.theme.HappyBirthdayTheme
 import androidx.compose.material3.Text as Text1
 import androidx.compose.foundation.layout.Box
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.stringResource
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,7 +34,8 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    GreetingImage(message = "Happy Birthday Sam", from = "From Emma")
+                    GreetingImage(message = getString(R.string.happy_birthday_text),
+                        stringResource(R.string.signature_text))
 
                 }
             }
@@ -66,7 +68,9 @@ fun GreetingImage(message: String, from: String, modifier: Modifier = Modifier) 
 fun GreetingText(message: String, from: String, modifier : Modifier = Modifier) {
     Column(
         verticalArrangement = Arrangement.Center,
-        modifier = Modifier.fillMaxSize().padding(8.dp)
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(8.dp)
     ) {
         Text1(
 
@@ -80,7 +84,7 @@ fun GreetingText(message: String, from: String, modifier : Modifier = Modifier) 
             fontSize = 36.sp,
             modifier = Modifier
                 .padding(16.dp)
-                .align(alignment = Alignment.End)
+                .align(alignment = Alignment.CenterHorizontally)
         )
     }
 }
